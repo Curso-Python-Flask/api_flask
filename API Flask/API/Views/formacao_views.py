@@ -20,6 +20,7 @@ class FormacaoList(Resource):
             nome = request.json['nome']
             descricao = request.json['descricao']
             professores = request.json['professores']
+
             novo_formacao = formacao.Formacao(nome=nome, descricao=descricao, professores=professores)
             resultado = formacao_service.cadastrar_formacao(novo_formacao)
             x = fs.jsonify(resultado)
@@ -45,6 +46,7 @@ class FormacaoDetail(Resource):
             nome = request.json['nome']
             descricao = request.json['descricao']
             professores = request.json['professores']
+
             novo_formacao = formacao.Formacao(nome=nome, descricao=descricao, professores=professores)
             formacao_service.atualiza_formacao(formacao_bd, novo_formacao)
             formacao_atualizado = formacao_service.listar_formacao_id(id)
